@@ -112,6 +112,7 @@ class AccountEmailVerify extends Component {
 							placeholder="Validation code *"
 							theme="dark"
 							onChange={this.handleChange}
+							maxlength='6'
 						/>
 					</fieldset>
 					<div className="pb4">

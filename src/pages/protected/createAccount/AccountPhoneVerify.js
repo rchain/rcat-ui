@@ -115,6 +115,7 @@ class AccountPhoneVerify extends Component {
 							error={this.state.errors.code}
 							placeholder="Validation code *"
 							theme="dark"
+							maxlength="6"
 							onChange={this.handleChange}
 						/>
 					</fieldset>
