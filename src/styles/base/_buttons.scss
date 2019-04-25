@@ -7,11 +7,9 @@
 .button-wide {
 	width: 320px;
 }
-
 .text-button {
 	width: 64px;
 }
-
 .hidebbutton {
 	width: 0.1px;
 	height: 0.1px;
@@ -19,6 +17,7 @@
 	overflow: hidden;
 	position: absolute;
 	z-index: -1;
+
 }
 
 .facebook-blue {
@@ -36,3 +35,13 @@
 .checkbox-container input:checked ~ .checkmarkWhite {
 	background-color: $white;
   }
+.checkbox-container input:focus ~ .checkmarkWhite {
+	border: 2px solid #809fff;
+}
+
+.ph0 input:focus ~ .bg-white{
+	border: 1.3px solid #809fff;
+}
+span input:focus ~ .text-button{
+	border: 1.3px solid #809fff;
+}
