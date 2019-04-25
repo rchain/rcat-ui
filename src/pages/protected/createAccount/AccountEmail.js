@@ -94,7 +94,6 @@ class AccountEmail extends Component {
 	}
 
 	render() {
-		console.log(this.state)
 		return (
 			<div className="w-100 vh-100 flex">
 				<div className="w-50 bg-blue">

@@ -159,7 +159,6 @@ class Kyc extends Component {
 	}
 
 	render() {
-		console.log(this.props.kyc)
 		return (
 			<div className="w-100 flex overflow-hidden">
 				<div className="w-50 bg-yellow v-top relative">
