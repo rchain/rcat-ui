@@ -45,9 +45,13 @@ class AccountPhoneVerify extends Component {
 		.catch((error) => {
 			console.log(error);
 			this.props.stopLoader();
+			let errorModalMessage = 'Error submiting your data';
+			if (error.response && error.response.data && error.response.data.message) {
+				errorModalMessage = error.response.data.message;
+			}
 			this.setState({
 				errorModal: true,
-				errorModalMessage: 'Error submiting your data'
+				errorModalMessage,
 			})
 		});
 	}
@@ -71,9 +75,13 @@ class AccountPhoneVerify extends Component {
 			.catch((error) => {
 				console.log(error);
 				this.props.stopLoader();
+				let errorModalMessage = 'Error submiting your data';
+				if (error.response && error.response.data && error.response.data.message) {
+					errorModalMessage = error.response.data.message;
+				}
 				this.setState({
 					errorModal: true,
-					errorModalMessage: 'Error submiting your data'
+					errorModalMessage,
 				})
 			});
 		}

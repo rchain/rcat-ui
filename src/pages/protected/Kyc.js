@@ -62,9 +62,13 @@ class Kyc extends Component {
 		.catch((error) => {
 			console.log(error);
 			this.props.stopLoader();
+			let errorModalMessage = 'Error skiping KYC';
+			if (error.response && error.response.data && error.response.data.message) {
+				errorModalMessage = error.response.data.message;
+			}
 			this.setState({
 				errorModal: true,
-				errorModalMessage: 'Error skiping KYC'
+				errorModalMessage,
 			})
 		})
 	}
@@ -130,9 +134,13 @@ class Kyc extends Component {
 			.catch((error) => {
 				console.log(error);
 				this.props.stopLoader();
+				let errorModalMessage = 'Error submiting KYC';
+				if (error.response && error.response.data && error.response.data.message) {
+					errorModalMessage = error.response.data.message;
+				}
 				this.setState({
 					errorModal: true,
-					errorModalMessage: 'Error submiting KYC'
+					errorModalMessage,
 				})
 			});
 		}
