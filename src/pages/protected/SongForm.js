@@ -64,6 +64,10 @@ class SongForm extends Component {
         })
         .catch((error) => {
             console.log(error);
+            if (error.response && error.response.data && error.response.data.message) {
+                console.log('Error details:', error.response.data.message);
+
+            }
             this.props.stopLoader();
             this.setState({ errorModal: true });
         });
