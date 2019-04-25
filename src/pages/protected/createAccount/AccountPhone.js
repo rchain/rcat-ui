@@ -26,7 +26,13 @@ class AccountPhone extends Component {
             errorModal: false,
         })
 	}
-	
+
+	keyPressed = (event) => {
+		if (event.key === "Enter") {
+			console.log("Hi Enter")
+			this.submitForm()
+		}
+	}
 	handleChange = (event) => {
 		this.setState({ [event.target.name]: event.target.value });
 	}
@@ -102,6 +108,7 @@ class AccountPhone extends Component {
 							placeholder="Phone number *"
 							theme="dark"
 							onChange={this.handleChange}
+							onKeyPress={this.keyPressed}
 						/>
 					</fieldset>
 					<div className="pb4">

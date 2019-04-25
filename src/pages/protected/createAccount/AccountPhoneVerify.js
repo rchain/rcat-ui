@@ -35,6 +35,12 @@ class AccountPhoneVerify extends Component {
 		logout(this.props.history);
 	}
 
+	keyPressed = (event) => {
+		if (event.key === "Enter") {
+			console.log("Hi Enter")
+			this.submitForm()
+		}
+	}
 	onResend = () => {
 		this.props.startLoader();
 		resendMobile()
@@ -125,6 +131,7 @@ class AccountPhoneVerify extends Component {
 							theme="dark"
 							onChange={this.handleChange}
 							maxLenght={6}
+							onKeyPress={this.keyPressed}
 						/>
 					</fieldset>
 					<div className="pb4">
