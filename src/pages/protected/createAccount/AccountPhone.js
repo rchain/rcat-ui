@@ -54,6 +54,12 @@ class AccountPhone extends Component {
 				let errorModalMessage = 'Error submiting your data';
 				if (error.response && error.response.data && error.response.data.message) {
 					errorModalMessage = error.response.data.message;
+					if(error.response.data.moreInfo && error.response.data.moreInfo.trim().length > 0) {
+						errorModalMessage += '. More info: ' + error.response.data.moreInfo;
+						if(error.response.data.code === 21211) {
+							errorModalMessage += '. For example local US number 202-555-0122 should be written as +1-202-555-0122' ;
+						}
+					}
 				}
 				this.setState({
 					errorModal: true,
