@@ -43,7 +43,7 @@ class AccountEmailVerify extends Component {
 			this.props.stopLoader();		
 		})
 		.catch((error) => {
-			console.log('Error submiting your data: ', error);
+			console.log(error);
 			this.props.stopLoader();
 			let errorModalMessage = 'Error submiting your data';
 			if (error.response && error.response.data && error.response.data.message) {
@@ -69,7 +69,7 @@ class AccountEmailVerify extends Component {
 				this.props.history.push('/login/signup-phone');				
 			})
 			.catch((error) => {
-				console.log('Error submiting your data: ', error);
+				console.log(error);
 				this.props.stopLoader();
 				let errorModalMessage = 'Error submiting your data';
 				if (error.response && error.response.data && error.response.data.message) {

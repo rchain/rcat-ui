@@ -65,14 +65,16 @@ export const submitMobileVerification = (data) => {
 }
 
 export const submitEmailVerificationCode = (code) => {
-    const data = {code};
-    console.log('POST /verification/email-code', data);
-    return axiosInstance.post('/verification/email-code', data, {
+    console.log('POST /verification/email-code', {code});
+    return axiosInstance.post('/verification/email-code', {
+        code
+    }, {
         headers: {'Authorization': `Bearer ${JSON.parse(localStorage.getItem('login')).token}`}
     });
 }
 
 export const submitMobileVerificationCode = (code) => {
+    console.log('POST /verification/mobile-code', {code});
     return axiosInstance.post('/verification/mobile-code', {
         code
     }, {
