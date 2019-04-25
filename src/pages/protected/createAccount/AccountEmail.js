@@ -162,6 +162,7 @@ class AccountEmail extends Component {
 							buttonText="Cancel"
 							theme="dark"
 							onClick={this.onCancel}
+
 						/>
 						<Button
 							name="continue"
