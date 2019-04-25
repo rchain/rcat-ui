@@ -19,6 +19,7 @@ class BasicInput extends Component {
 						${this.props.error ? 'b--red' : ''}
 						`}
 					disabled={this.props.disabled}
+					maxLength={this.props.maxLenght}
 				/>
 			</label>
 		);

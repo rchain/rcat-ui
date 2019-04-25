@@ -124,6 +124,7 @@ class AccountPhoneVerify extends Component {
 							placeholder="Validation code *"
 							theme="dark"
 							onChange={this.handleChange}
+							maxLenght={6}
 						/>
 					</fieldset>
 					<div className="pb4">
