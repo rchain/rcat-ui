@@ -5,7 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 class BasicDatePicker extends Component {
 	render() {
 		return (
-			<label className="w-100">
+			<div className="w-100">
 				<span className={`${ this.props.labelText ? '' : 'visuallyhidden' } dib pa0 mb2 ${ this.props.disabled ? 'gray' : '' }`}>
 					{this.props.labelText}
 				</span>
@@ -28,7 +28,7 @@ class BasicDatePicker extends Component {
 					maxDate={this.props.maxDate ? new Date() : undefined}
 					minDate={this.props.minDate ? new Date() : undefined}
 				/>
-			</label>
+			</div>
 		);
 	}
 
