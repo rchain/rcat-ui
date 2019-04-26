@@ -70,9 +70,13 @@ class AccountEmail extends Component {
 			.catch((error) => {
 				console.log(error);
 				this.props.stopLoader();
+				let errorModalMessage = 'Error submiting your data';
+				if (error.response && error.response.data && error.response.data.message) {
+					errorModalMessage = error.response.data.message;
+				}
 				this.setState({
 					errorModal: true,
-					errorModalMessage: 'Error submiting your data'
+					errorModalMessage,
 				})
 			});
 		}
@@ -90,7 +94,6 @@ class AccountEmail extends Component {
 	}
 
 	render() {
-		console.log(this.state)
 		return (
 			<div className="w-100 vh-100 flex">
 				<div className="w-50 bg-blue">
@@ -159,6 +162,7 @@ class AccountEmail extends Component {
 							buttonText="Cancel"
 							theme="dark"
 							onClick={this.onCancel}
+
 						/>
 						<Button
 							name="continue"

@@ -20,14 +20,19 @@ class AccountEmailVerify extends Component {
 			errorModalMessage: ''
         };
 	}
-
+	keyPressed = (event) => {
+		if (event.key === "Enter") {
+			console.log("Hi Enter")
+			this.submitForm()
+		}
+	}
 	closeErrorModal = () => {
         this.setState({
             errorModal: false,
         })
 	}
 	
-	handleChange = (event) => {
+	handleChange = (event, e) => {
 		this.setState({ [event.target.name]: event.target.value });
 	}
 
@@ -45,9 +50,13 @@ class AccountEmailVerify extends Component {
 		.catch((error) => {
 			console.log(error);
 			this.props.stopLoader();
+			let errorModalMessage = 'Error submiting your data';
+			if (error.response && error.response.data && error.response.data.message) {
+				errorModalMessage = error.response.data.message;
+			}
 			this.setState({
 				errorModal: true,
-				errorModalMessage: 'Error submiting your data'
+				errorModalMessage,
 			})
 		});
 	}
@@ -67,9 +76,13 @@ class AccountEmailVerify extends Component {
 			.catch((error) => {
 				console.log(error);
 				this.props.stopLoader();
+				let errorModalMessage = 'Error submiting your data';
+				if (error.response && error.response.data && error.response.data.message) {
+					errorModalMessage = error.response.data.message;
+				}
 				this.setState({
 					errorModal: true,
-					errorModalMessage: 'Error submiting your data'
+					errorModalMessage
 				})
 			});
 		}
@@ -112,6 +125,8 @@ class AccountEmailVerify extends Component {
 							placeholder="Validation code *"
 							theme="dark"
 							onChange={this.handleChange}
+							maxLenght={6}
+							onKeyPress={this.keyPressed}
 						/>
 					</fieldset>
 					<div className="pb4">
