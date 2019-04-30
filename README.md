@@ -106,11 +106,6 @@ If you want to run it in detached mode add param `-d`:
 docker run -p 81:80 -d asset-management-ui
 ```
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Deployment
 
@@ -123,6 +118,14 @@ Preconditions:
 - have installed `aws cli`
 - have appropriate `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` in the `env`
 
-### `npm run build` fails to minify
+## How to reset your social logins/apps access
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+#### Reset Facebook App
+Login into your facebook account and then goto https://www.facebook.com/settings?tab=applications. Remove your appropriate RSong app.
+
+
+#### Reset Google App
+
+Login into your google account and then goto https://myaccount.google.com/permissions?pli=1
+You will see all apps having access to your account. Find relevant RSong app, click on it and then click on the button `REMOVE ACCESS`.
+
