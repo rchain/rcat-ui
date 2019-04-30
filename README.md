@@ -129,3 +129,9 @@ Login into your facebook account and then goto https://www.facebook.com/settings
 Login into your google account and then goto https://myaccount.google.com/permissions?pli=1
 You will see all apps having access to your account. Find relevant RSong app, click on it and then click on the button `REMOVE ACCESS`.
 
+## Dependencies
+- API: https://github.com/cramick-it/asset-management-api
+- Google recaptcha: https://www.google.com/recaptcha `REQUIRE CREDENTIALS/TOKENS`.
+- Facebook apps: https://developers.facebook.com/apps `REQUIRE CREDENTIALS/TOKENS`.
+- Google apps: https://console.developers.google.com/apis/credentials `REQUIRE CREDENTIALS/TOKENS`.
+- Sentry for logging errors: https://sentry.io  `REQUIRE CREDENTIALS/TOKENS`. `PAYABLE SERVICE`. `OPTIONAL`
