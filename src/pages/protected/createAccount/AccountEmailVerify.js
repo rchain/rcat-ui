@@ -17,7 +17,8 @@ class AccountEmailVerify extends Component {
 			code: '',
 			errors: {},
 			errorModal: false,
-			errorModalMessage: ''
+			errorModalMessage: '',
+			notificationParagraf: false
         };
 	}
 
@@ -36,6 +37,7 @@ class AccountEmailVerify extends Component {
 	}
 
 	onResend = () => {
+		this.setState({notificationParagraf:true})
 		this.props.startLoader();
 		resendEmail()
 		.then((response) => {
@@ -96,6 +98,14 @@ class AccountEmailVerify extends Component {
 
 	render() {
 		const email = JSON.parse(localStorage.getItem('login')).user.email;
+		const notificationStyle = {
+		backgroundColor:'#A50034',
+		color:'white',
+		width: '551px',
+		height: "60px",
+		display:'table-cell',
+		verticalAlign: 'middle'
+		}
 		return (
 			<div className="w-100 vh-100 flex">
 				<div className="w-50 bg-blue">
@@ -122,7 +132,12 @@ class AccountEmailVerify extends Component {
 							onChange={this.handleChange}
 							maxLenght={6}
 						/>
+						{this.state.notificationParagraf ?
+							<span style={notificationStyle}>
+								<a style={{marginLeft:'3%'}}>A new email has been sent</a>
+							</span> : <></>}
 					</fieldset>
+
 					<div className="pb4">
 						<Button
 							name="continue"
