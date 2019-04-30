@@ -7,6 +7,17 @@ import { store } from './redux/store';
 import './styles/main.scss';
 import PageContainer from './PageContainer';
 
+import * as Sentry from '@sentry/browser';
+
+Sentry.init({
+ dsn: process.env.SENTRY_DSN
+});
+// should have been called before using it here
+// ideally before even rendering your react app
+// Sentry.configureScope((scope) => {
+// 	scope.setTag('environment', process.env.NODE_ENV);
+// });
+
 ReactDOM.render(
 	<Provider store={store}>
 		<BrowserRouter>
