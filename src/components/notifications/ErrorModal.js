@@ -12,7 +12,7 @@ class ErrorModal extends Component {
 				<section className="w-680 mt5 white center">
 					<p className="f3 b">Error</p>
 					<div className="overflow-x">
-						<p className="f5 lh-copy">{this.props.errorMessage}</p>
+						<p className="f5 lh-copy" style={{whiteSpace: 'pre-line'}}>{this.props.errorMessage}</p>
                     </div>
 					<div className="pv4">
 						<Button
