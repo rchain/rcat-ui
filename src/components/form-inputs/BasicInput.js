@@ -20,6 +20,7 @@ class BasicInput extends Component {
 						`}
 					disabled={this.props.disabled}
 					maxLength={this.props.maxLenght}
+					onKeyPress={this.props.onKeyPress}
 				/>
 			</label>
 		);

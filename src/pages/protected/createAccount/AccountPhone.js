@@ -26,7 +26,13 @@ class AccountPhone extends Component {
             errorModal: false,
         })
 	}
-	
+
+	keyPressed = (event) => {
+		if (event.key === "Enter") {
+			console.log("Hi Enter")
+			this.submitForm()
+		}
+	}
 	handleChange = (event) => {
 		this.setState({ [event.target.name]: event.target.value });
 	}
@@ -55,9 +61,9 @@ class AccountPhone extends Component {
 				if (error.response && error.response.data && error.response.data.message) {
 					errorModalMessage = error.response.data.message;
 					if(error.response.data.moreInfo && error.response.data.moreInfo.trim().length > 0) {
-						errorModalMessage += '. More info: ' + error.response.data.moreInfo;
+						errorModalMessage += '\n' + 'More info: ' + error.response.data.moreInfo;
 						if(error.response.data.code === 21211) {
-							errorModalMessage += '. For example local US number 202-555-0122 should be written as +1-202-555-0122' ;
+							errorModalMessage += '\n' + 'For example local US number 202-555-0122 should be written as +1-202-555-0122' ;
 						}
 					}
 				}
@@ -102,6 +108,7 @@ class AccountPhone extends Component {
 							placeholder="Phone number *"
 							theme="dark"
 							onChange={this.handleChange}
+							onKeyPress={this.keyPressed}
 						/>
 					</fieldset>
 					<div className="pb4">

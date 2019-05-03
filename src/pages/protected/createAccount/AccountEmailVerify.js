@@ -21,14 +21,19 @@ class AccountEmailVerify extends Component {
 			notificationParagraf: false
         };
 	}
-
+	keyPressed = (event) => {
+		if (event.key === "Enter") {
+			console.log("Hi Enter")
+			this.submitForm()
+		}
+	}
 	closeErrorModal = () => {
         this.setState({
             errorModal: false,
         })
 	}
 	
-	handleChange = (event) => {
+	handleChange = (event, e) => {
 		this.setState({ [event.target.name]: event.target.value });
 	}
 
@@ -131,6 +136,7 @@ class AccountEmailVerify extends Component {
 							theme="dark"
 							onChange={this.handleChange}
 							maxLenght={6}
+							onKeyPress={this.keyPressed}
 						/>
 						{this.state.notificationParagraf ?
 							<span style={notificationStyle}>

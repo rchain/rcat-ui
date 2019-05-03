@@ -35,6 +35,12 @@ class AccountPhoneVerify extends Component {
 		logout(this.props.history);
 	}
 
+	keyPressed = (event) => {
+		if (event.key === "Enter") {
+			console.log("Hi Enter")
+			this.submitForm()
+		}
+	}
 	onResend = () => {
 		this.setState({notificationParagraf:true})
 		this.props.startLoader();
@@ -136,6 +142,7 @@ class AccountPhoneVerify extends Component {
 							theme="dark"
 							onChange={this.handleChange}
 							maxLenght={6}
+							onKeyPress={this.keyPressed}
 						/>
 						{this.state.notificationParagraf ?
 							<span style={notificationStyle}>
