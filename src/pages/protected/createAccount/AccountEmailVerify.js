@@ -106,7 +106,7 @@ class AccountEmailVerify extends Component {
 		const notificationStyle = {
 		backgroundColor:'#A50034',
 		color:'white',
-		width: '551px',
+		width: '1080px',
 		height: "60px",
 		display:'table-cell',
 		verticalAlign: 'middle'
