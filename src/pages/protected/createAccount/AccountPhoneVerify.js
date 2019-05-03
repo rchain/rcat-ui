@@ -9,6 +9,7 @@ import { logout } from '../../../helpers/logout';
 import { validateCodeForm } from '../../../validators/accountCreateValidators';
 import { submitMobileVerificationCode, resendMobile } from '../../../redux/actions/authActions';
 import ErrorModal from '../../../components/notifications/ErrorModal';
+import NotificationSpan from "../../../components/notifications/NotificationSpan";
 
 class AccountPhoneVerify extends Component {
 	constructor(props) {
@@ -17,7 +18,8 @@ class AccountPhoneVerify extends Component {
 			code: '',
 			errors: {},
 			errorModal: false,
-			errorModalMessage: ''
+			errorModalMessage: '',
+			notification: false
         };
 	}
 
@@ -37,12 +39,11 @@ class AccountPhoneVerify extends Component {
 
 	keyPressed = (event) => {
 		if (event.key === "Enter") {
-			console.log("Hi Enter")
 			this.submitForm()
 		}
 	}
 	onResend = () => {
-		this.setState({notificationParagraf:true})
+		this.setState({notification:true})
 		this.props.startLoader();
 		resendMobile()
 		.then((response) => {
@@ -59,7 +60,7 @@ class AccountPhoneVerify extends Component {
 			this.setState({
 				errorModal: true,
 				errorModalMessage,
-				notificationParagraf: false
+				notification: false
 			})
 		});
 	}
@@ -109,14 +110,6 @@ class AccountPhoneVerify extends Component {
 	render() {
 		const mobile = JSON.parse(localStorage.getItem('login')).user.mobile;
 
-	const notificationStyle = {
-		backgroundColor:'#A50034',
-		color:'white',
-		width:'1080px',
-		height: "60px",
-		display:'table-cell',
-		verticalAlign: 'middle'
-	}
 	return (
 			<div className="w-100 vh-100 flex">
 				<div className="w-50 bg-blue">
@@ -144,10 +137,10 @@ class AccountPhoneVerify extends Component {
 							maxLenght={6}
 							onKeyPress={this.keyPressed}
 						/>
-						{this.state.notificationParagraf ?
-							<span style={notificationStyle}>
-								<a style={{marginLeft:'3%'}}>A new text has been sent</a>
-							</span> : <></>}
+						<NotificationSpan
+						notification={this.state.notification}
+						mark='text'
+						/>
 					</fieldset>
 
 					<div className="pb4">

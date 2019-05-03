@@ -9,6 +9,7 @@ import { resendEmail, submitEmailVerificationCode } from '../../../redux/actions
 import { validateCodeForm } from '../../../validators/accountCreateValidators';
 import { startLoader, stopLoader } from '../../../redux/actions/loaderActions';
 import ErrorModal from '../../../components/notifications/ErrorModal';
+import NotificationSpan from '../../../components/notifications/NotificationSpan';
 
 class AccountEmailVerify extends Component {
 	constructor(props) {
@@ -18,12 +19,11 @@ class AccountEmailVerify extends Component {
 			errors: {},
 			errorModal: false,
 			errorModalMessage: '',
-			notificationParagraf: false
+			notification: false
         };
 	}
 	keyPressed = (event) => {
 		if (event.key === "Enter") {
-			console.log("Hi Enter")
 			this.submitForm()
 		}
 	}
@@ -42,7 +42,7 @@ class AccountEmailVerify extends Component {
 	}
 
 	onResend = () => {
-		this.setState({notificationParagraf:true})
+		this.setState({notification: true})
 		this.props.startLoader();
 		resendEmail()
 		.then((response) => {
@@ -65,6 +65,7 @@ class AccountEmailVerify extends Component {
 
 	submitForm = () => {
 		const validForm = this.validateForm();
+
 		if (validForm) {
 			this.props.startLoader();
 			submitEmailVerificationCode(this.state.code)
@@ -103,14 +104,6 @@ class AccountEmailVerify extends Component {
 
 	render() {
 		const email = JSON.parse(localStorage.getItem('login')).user.email;
-		const notificationStyle = {
-		backgroundColor:'#A50034',
-		color:'white',
-		width: '1080px',
-		height: "60px",
-		display:'table-cell',
-		verticalAlign: 'middle'
-		}
 		return (
 			<div className="w-100 vh-100 flex">
 				<div className="w-50 bg-blue">
@@ -138,12 +131,11 @@ class AccountEmailVerify extends Component {
 							maxLenght={6}
 							onKeyPress={this.keyPressed}
 						/>
-						{this.state.notificationParagraf ?
-							<span style={notificationStyle}>
-								<a style={{marginLeft:'3%'}}>A new email has been sent</a>
-							</span> : <></>}
+						<NotificationSpan
+						notification={this.state.notification}
+						mark='email'
+						/>
 					</fieldset>
-
 					<div className="pb4">
 						<Button
 							name="continue"
@@ -161,6 +153,7 @@ class AccountEmailVerify extends Component {
                     />
                     : <></>
                 }
+
 			</div>
 		);
 	}
