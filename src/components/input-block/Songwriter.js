@@ -44,7 +44,7 @@ class Songwriter extends Component {
 						<BasicInput
 							type="text"
 							name="songwriterPercentage"
-							placeholder="50"
+							placeholder="50 *"
 							labelText="Percentage of total song"
 							value={this.props.songwriterPercentage}
 							onChange={this.onChange}
@@ -105,7 +105,7 @@ class Songwriter extends Component {
 						<BasicInput
 							type="email"
 							name="email"
-							placeholder="Email"
+							placeholder="Email *"
 							labelText="Email if no REV address"
 							value={this.props.email}
 							onChange={this.onChange}
