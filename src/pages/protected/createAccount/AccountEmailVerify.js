@@ -9,6 +9,7 @@ import { resendEmail, submitEmailVerificationCode } from '../../../redux/actions
 import { validateCodeForm } from '../../../validators/accountCreateValidators';
 import { startLoader, stopLoader } from '../../../redux/actions/loaderActions';
 import ErrorModal from '../../../components/notifications/ErrorModal';
+import NotificationSpan from '../../../components/notifications/NotificationSpan';
 
 class AccountEmailVerify extends Component {
 	constructor(props) {
@@ -17,7 +18,8 @@ class AccountEmailVerify extends Component {
 			code: '',
 			errors: {},
 			errorModal: false,
-			errorModalMessage: ''
+			errorModalMessage: '',
+			notification: false
         };
 	}
 	keyPressed = (event) => {
@@ -40,6 +42,7 @@ class AccountEmailVerify extends Component {
 	}
 
 	onResend = () => {
+		this.setState({notification: true})
 		this.props.startLoader();
 		resendEmail()
 		.then((response) => {
@@ -62,6 +65,7 @@ class AccountEmailVerify extends Component {
 
 	submitForm = () => {
 		const validForm = this.validateForm();
+
 		if (validForm) {
 			this.props.startLoader();
 			submitEmailVerificationCode(this.state.code)
@@ -127,6 +131,10 @@ class AccountEmailVerify extends Component {
 							maxLenght={6}
 							onKeyPress={this.keyPressed}
 						/>
+						<NotificationSpan
+						notification={this.state.notification}
+						mark='email'
+						/>
 					</fieldset>
 					<div className="pb4">
 						<Button
@@ -145,6 +153,7 @@ class AccountEmailVerify extends Component {
                     />
                     : <></>
                 }
+
 			</div>
 		);
 	}
