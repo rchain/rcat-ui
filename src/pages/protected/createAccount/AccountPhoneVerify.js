@@ -37,7 +37,6 @@ class AccountPhoneVerify extends Component {
 
 	keyPressed = (event) => {
 		if (event.key === "Enter") {
-			console.log("Hi Enter")
 			this.submitForm()
 		}
 	}
