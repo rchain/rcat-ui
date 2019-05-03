@@ -7,6 +7,13 @@ import * as Sentry from '@sentry/browser';
 
 class PageContainer extends Component {
 
+    constructor(props) {
+        super(props);
+        console.log('props', props);
+        console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
+        console.log(`API ENDPOINT: ${process.env.REACT_APP_API_ENDPOINT}`);
+    }
+
     componentDidCatch(error, errorInfo) {
         this.setState({ error });
         Sentry.withScope(scope => {
