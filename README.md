@@ -135,3 +135,10 @@ You will see all apps having access to your account. Find relevant RSong app, cl
 - Facebook apps: https://developers.facebook.com/apps `REQUIRE CREDENTIALS/TOKENS`.
 - Google apps: https://console.developers.google.com/apis/credentials `REQUIRE CREDENTIALS/TOKENS`.
 - Sentry for logging errors: https://sentry.io  `REQUIRE CREDENTIALS/TOKENS`. `PAYABLE SERVICE`. `OPTIONAL`
+
+### Additional Dependencies
+- Sendgrid for sending email
+- Twillio for sending SMS
+- Dropbox token
+- Google Cloud Storage bucket name and project id
+- Sentry for errors logging
