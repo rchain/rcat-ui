@@ -149,13 +149,13 @@ class AccountEmail extends Component {
 						/>
 						<span className="white v-mid pl2 f6">I agree to allow RSong to use my email for notifications.<br />We won’t sell your data. *</span>
 					</span>
-					{/*<span className="dib w-100 ph0 mb4 flex">*/}
-					{/*	<ReCAPTCHA*/}
-					{/*		sitekey={process.env.REACT_APP_GOOGLE_CAPTCHA}*/}
-					{/*		onChange={this.onChangeCaptcha}*/}
-					{/*		theme="dark"*/}
-					{/*	/>*/}
-					{/*</span>*/}
+					<span className="dib w-100 ph0 mb4 flex">
+						<ReCAPTCHA
+							sitekey={process.env.REACT_APP_GOOGLE_CAPTCHA}
+							onChange={this.onChangeCaptcha}
+							theme="dark"
+						/>
+					</span>
 					<div className="pb4">
 						<TextButton
 							name="cancel"
