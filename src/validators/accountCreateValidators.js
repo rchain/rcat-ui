@@ -17,7 +17,7 @@ export const validateEmailForm = (data) => {
     // if (data.captcha === false) {
     //     errors.captcha = true;
     // }
-    // return errors;
+    return errors;
 }
 
 export const validatePhoneForm = (data) => {
