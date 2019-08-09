@@ -10,7 +10,6 @@ class PageContainer extends Component {
     constructor(props) {
         super(props);
         console.log('props', props);
-        console.log('process.env', process.env);
         console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
         console.log(`API ENDPOINT: ${process.env.REACT_APP_API_ENDPOINT}`);
         const recaptchaa = process.env.REACT_APP_GOOGLE_CAPTCHA.substr(12);
