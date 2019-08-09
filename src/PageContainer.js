@@ -12,6 +12,8 @@ class PageContainer extends Component {
         console.log('props', props);
         console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
         console.log(`API ENDPOINT: ${process.env.REACT_APP_API_ENDPOINT}`);
+        const recaptchaa = process.env.REACT_APP_GOOGLE_CAPTCHA.substr(12);
+        console.log(`REACT_APP_GOOGLE_CAPTCHA: ${recaptchaa}`);
     }
 
     componentDidCatch(error, errorInfo) {
