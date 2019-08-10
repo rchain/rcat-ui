@@ -33,7 +33,7 @@ class Login extends Component {
 				if (response.status === 'connected') {
 					facebookLogin(response.authResponse, response.authResponse.accessToken)
 					.then((response) => {
-						console.log(response);
+						// console.log(response);
 						scope.props.stopLoader();
 						scope.setStorageAndRedirect('facebook', response.data);
 					})
@@ -57,7 +57,7 @@ class Login extends Component {
 				console.log(response);
 				googleLogin(response.w3, response.Zi.id_token)
 				.then((response) => {
-					console.log(response);
+					// console.log(response);
 					this.props.stopLoader();
 					this.setStorageAndRedirect('google', response.data);
 				})
