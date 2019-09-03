@@ -17,6 +17,7 @@ class Songs extends Component {
 	}
 
 	render() {
+		console.log(this.props.songs)
 		return (
 			<section>
 				<AppHeader
@@ -30,7 +31,9 @@ class Songs extends Component {
 									<MediaRow
 										key={song._id}
 										name={song.title}
-										status={song.state}/>
+										status={song.state}
+										img={song.asset_img_art.gcs_data.fileName}
+									/>
 								) : <></>}
 						</div>
 					</div>
