@@ -17,7 +17,6 @@ class Songs extends Component {
 	}
 
 	render() {
-		console.log(this.props.songs)
 		return (
 			<section>
 				<AppHeader
