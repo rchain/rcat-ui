@@ -3,7 +3,7 @@ import { validatePhone } from '../validators/validatorHelper';
 describe('RegExp: PhoneNumber', function(){
     it('should validate phone number 1', function(){
 
-        const phone = '(577) 288-8001';
+        const phone = '+381658210740';
         expect(validatePhone(phone)).toBe(true);
     });
     it('should validate phone number 2', function(){
@@ -13,12 +13,12 @@ describe('RegExp: PhoneNumber', function(){
     });
     it('should validate phone number 3', function(){
 
-        const phone = '+1-202-575-0122';
+        const phone = '0855-5079977';
         expect(validatePhone(phone)).toBe(true);
     });
     it('should validate phone number 4', function(){
 
-        const phone = '+1-202-5n5-0122';
+        const phone = '18063-006983';
         expect(validatePhone(phone)).toBe(false);
     });
     it('should validate phone number 5', function(){
@@ -28,17 +28,27 @@ describe('RegExp: PhoneNumber', function(){
     });
     it('should validate phone number 6', function(){
 
-        const phone = '202-555-0172';
-        expect(validatePhone(phone)).toBe(true);
+        const phone = '202-555555555555555555555555555555555555555555555555555555555-0172';
+        expect(validatePhone(phone)).toBe(false);
     });
     it('should validate phone number 7', function(){
 
-        const phone = '(497) 658-3018';
+        const phone = '(497777) 658-3018';
         expect(validatePhone(phone)).toBe(true);
     });
     it('should validate phone number 8', function(){
 
-        const phone = '+1-202-555-0191';
+        const phone = '048993-4880';
         expect(validatePhone(phone)).toBe(true);
+    });
+    it('should validate phone number 9', function(){
+
+        const phone = '613-773-6252';
+        expect(validatePhone(phone)).toBe(true);
+    });
+    it('should validate phone number 10', function(){
+
+        const phone = '000-000-000';
+        expect(validatePhone(phone)).toBe(false);
     });
 });
