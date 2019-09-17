@@ -51,4 +51,14 @@ describe('RegExp: PhoneNumber', function(){
         const phone = '000-000-000';
         expect(validatePhone(phone)).toBe(false);
     });
+    it('should validate phone number 11', function(){
+
+        const phone = '000000000000000';
+        expect(validatePhone(phone)).toBe(false);
+    });
+    it('should validate phone number 12', function(){
+
+        const phone = '123456';
+        expect(validatePhone(phone)).toBe(false);
+    });
 });
