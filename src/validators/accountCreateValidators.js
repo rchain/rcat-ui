@@ -1,4 +1,4 @@
-import { validateEmail } from './validatorHelper';
+import { validateEmail, validatePhone } from './validatorHelper';
 
 export const validateEmailForm = (data) => {
     let errors = {};
@@ -22,7 +22,7 @@ export const validateEmailForm = (data) => {
 
 export const validatePhoneForm = (data) => {
     let errors = {};
-    if (data.phone === '') {
+    if (data.phone === '' || !validatePhone(data.phone)) {
         errors.phone = true;
     }
     return errors;

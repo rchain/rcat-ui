@@ -39,7 +39,7 @@ class AccountPhone extends Component {
 	onCancel = () => {
 		logout(this.props.history);
 	}
-	
+
 	submitForm = () => {
 		const validForm = this.validateForm();
 		if (validForm) {
@@ -78,6 +78,7 @@ class AccountPhone extends Component {
 		let errors = {};
 		errors = validatePhoneForm(this.state);
         this.setState({ errors })
+		this.errorModal=true
         if (Object.keys(errors).length > 0 && errors.constructor === Object) {
             console.log(errors);
             return false;
@@ -100,7 +101,7 @@ class AccountPhone extends Component {
 				<div className="w-50 ph5 pt7 bg-black">
 					<p className="f5 white lh-copy">Next, enter your phone number. You’ll recieve a text with a validation code. Standard SMS fees may apply.</p>
 					<fieldset className="bn ph0 pt3 mb2">
-						<BasicInput 
+						<BasicInput
 							name="phone"
 							value={this.state.phone}
 							error={this.state.errors.phone}
