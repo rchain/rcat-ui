@@ -1,20 +1,26 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 
 class MediaRow extends Component {
     render() {
         const img = this.props.img;
-        const imgSrc = process.env.REACT_APP_GOOGLE_CLOUD_IMAGE_PATH + img;
-        const imgPlaceholder = <div className="w-160 bg-light-yellow"/>;
-        let imgTab = <img className="w-160" src={imgSrc} alt="album_img"/>;
+        // const imgSrc = process.env.REACT_APP_GOOGLE_CLOUD_IMAGE_PATH + img;
+        let imgTab = <div className="w-160 bg-light-yellow"/>;
+        //imgTab = <img className="w-160" src={img.src} alt="album_img"/>
+        let imgSrc;
+        const loadImage = (img) =>{
+            return new Promise((resolve, reject)=> {
+                resolve(imgSrc = process.env.REACT_APP_GOOGLE_CLOUD_IMAGE_PATH + img);
+                reject(new Error('Failed img'))
+            })
+            };
+        console.log(loadImage(img));
 
-        if (process.env.REACT_APP_GOOGLE_CLOUD_IMAGE_PATH === undefined || process.env.REACT_APP_GOOGLE_CLOUD_IMAGE_PATH.length === 0) {
-            console.error('ERROR FROM MediaRow.js => REACT_APP_GOOGLE_CLOUD_IMAGE_PATH is undefined or empty.');
-            imgTab = imgPlaceholder
-        }
-        if (img == null) {
-            console.error('ERROR FROM MediaRow.js => this.props.img is missing');
-            imgTab = imgPlaceholder
-        }
+        loadImage(img)
+            .then(img => imgTab = <img className="w-160" src={img} alt="album_img"/>)
+            .catch(error => {
+                console.error('error from loadImage', error);
+            });
+
         return (
             <div className="w-100 h4 white bg-black mb2 flex">
                 {imgTab}
@@ -26,5 +32,6 @@ class MediaRow extends Component {
         );
     }
 }
+
 
 export default MediaRow;
