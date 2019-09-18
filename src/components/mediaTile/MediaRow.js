@@ -14,21 +14,19 @@ class MediaRow extends Component {
         const loadImage = (src) => {
             return new Promise((resolve, reject) => {
                 const img = new Image();
-                img.addEventListener("load", img => resolve(img));
+                img.addEventListener("load", e => resolve(img));
                 img.addEventListener('error', () => {
                     reject(new Error(`Failed to load image`));
                 });
                 img.src = src;
-                console.log(img)
             })
         };
         loadImage(imgSrc).then(img => {
-            console.log(img)
             let imageSrc = <img className="w-160" src={img.src}/>
             this.setState({
                 imgTab: imageSrc,
             })
-        }).catch(error => console.log(error));
+        }).catch(error => console.error(error));
     }
 
     render() {
