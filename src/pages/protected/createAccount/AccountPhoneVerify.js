@@ -155,17 +155,17 @@ class AccountPhoneVerify extends Component {
                     </fieldset>
 
                     <div className="pb4">
-                        <Button
-                            name="continue"
-                            buttonText="Continue"
-                            theme="dark"
-                            onClick={this.submitForm}
-                        />
                         <TextButton
                             name="back"
                             buttonText="Back"
                             theme="dark"
                             onClick={this.backToSignupPhone}
+                        />
+                        <Button
+                            name="continue"
+                            buttonText="Continue"
+                            theme="dark"
+                            onClick={this.submitForm}
                         />
                     </div>
 
