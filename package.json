@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@sentry/browser": "^5.1.1",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "env-cmd": "^8.0.2",
     "node-sass": "^4.11.0",
     "react": "^16.8.4",
